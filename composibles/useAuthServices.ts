@@ -15,6 +15,23 @@ export const useAuthService = () => {
         } catch(err) {
             return Promise.reject(err)
         }
+    } 
+
+    async function register(email: string, password: string) : Promise<void> {
+        try {
+
+            // Do a login request from the client side
+            await $fetch('/api/auth/register', {
+                body: {
+                    email,
+                    password
+                },
+                method: 'POST'
+            })
+
+        } catch(err) {
+            return Promise.reject(err)
+        }
     }
 
     async function logout() : Promise<void> {
@@ -46,6 +63,7 @@ export const useAuthService = () => {
 
     return {
         login,
+        register,
         getUser,
         logout
     }
