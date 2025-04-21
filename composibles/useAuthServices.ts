@@ -48,18 +48,15 @@ export const useAuthService = () => {
 
     async function getUser() : Promise<any> {
         try {
-
-            // Get the current authenticated user
-            // useRequestHeaders(['cookies']) will send the httpOnly cookies to the nitro server
-            const user = await $fetch('/api/auth/user', {
-                headers: useRequestHeaders(['cookies'])
-            })
-
-            return user
-        } catch(err) {
-            return Promise.reject(err)
+          const user = await $fetch('/api/auth/user', {
+            headers: useRequestHeaders(['cookie'])
+          })
+          return user
+        } catch (err) {
+          return Promise.reject(err)
         }
-    }
+      }
+      
 
     return {
         login,

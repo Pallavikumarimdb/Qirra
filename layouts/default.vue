@@ -1,4 +1,6 @@
+<!-- layouts/default.vue -->
 <template>
+  <div>
     <NuxtPage />
-  </template>
-  
+  </div>
+</template>
